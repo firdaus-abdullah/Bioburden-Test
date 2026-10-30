@@ -444,7 +444,7 @@ svg.ic{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.9;strok
     </div>
   </section>
 
-  <!-- ================= 2. TRAINING ATTENDANCE QR ================= -->
+  <!-- ================= 2. TRAINING ATTENDANCE QR (NEW LINK) ================= -->
   <section class="slide">
     <div class="s-head">
       <div>
@@ -457,11 +457,11 @@ svg.ic{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.9;strok
 
     <div class="qr-layout anim-pop" style="--d:.2s">
       <div class="qr-box">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://forms.gle/fmHBGwNNaMfsWpxD7" alt="QR Code for Training Attendance">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://forms.gle/cvWsgDVrhVrJbSmd8" alt="QR Code for Training Attendance">
       </div>
       <div class="qr-link">
         <svg class="ic" style="color:var(--red)"><use href="#i-doc"/></svg>
-        <span>Link: <a href="https://forms.gle/fmHBGwNNaMfsWpxD7" target="_blank">https://forms.gle/fmHBGwNNaMfsWpxD7</a></span>
+        <span>Link: <a href="https://forms.gle/cvWsgDVrhVrJbSmd8" target="_blank">https://forms.gle/cvWsgDVrhVrJbSmd8</a></span>
       </div>
     </div>
   </section>
@@ -934,7 +934,7 @@ svg.ic{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.9;strok
     </div>
   </section>
 
-  <!-- ================= 12. TRAINING ASSESSMENT QR ================= -->
+  <!-- ================= 12. TRAINING ASSESSMENT QR (NEW LINK) ================= -->
   <section class="slide">
     <div class="s-head">
       <div>
@@ -947,11 +947,11 @@ svg.ic{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.9;strok
 
     <div class="qr-layout anim-pop" style="--d:.2s">
       <div class="qr-box">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://forms.gle/9js3StV1TZzexLAQ7" alt="QR Code for Training Assessment">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://forms.gle/BXzvxZ6NKfkABXDEA" alt="QR Code for Training Assessment">
       </div>
       <div class="qr-link">
         <svg class="ic" style="color:var(--red)"><use href="#i-doc"/></svg>
-        <span>Link: <a href="https://forms.gle/9js3StV1TZzexLAQ7" target="_blank">https://forms.gle/9js3StV1TZzexLAQ7</a></span>
+        <span>Link: <a href="https://forms.gle/BXzvxZ6NKfkABXDEA" target="_blank">https://forms.gle/BXzvxZ6NKfkABXDEA</a></span>
       </div>
     </div>
   </section>
@@ -1038,7 +1038,6 @@ function goTo(n){
   counter.textContent = `${current + 1} / ${total}`;
   progressBar.style.width = ((current + 1) / total * 100) + '%';
 
-  // Stop auto-play if leaving the interactive slide (index 8)
   if (current !== 8) stopPlay();
 }
 
@@ -1052,7 +1051,6 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'End') goTo(total - 1);
 });
 
-/* deep-link cards */
 document.querySelectorAll('[data-goto]').forEach(el => {
   el.style.cursor = 'pointer';
   el.addEventListener('click', (e) => {
@@ -1076,7 +1074,6 @@ stage.addEventListener('click', (e) => {
    FULLSCREEN MODE
    ============================================================ */
 const fsBtn = document.getElementById('fsBtn');
-
 function toggleFullscreen(){
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen().catch(() => {});
@@ -1085,12 +1082,10 @@ function toggleFullscreen(){
   }
 }
 fsBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleFullscreen(); });
-
 document.addEventListener('fullscreenchange', () => {
   fsBtn.textContent = document.fullscreenElement ? '⤡' : '⛶';
   setTimeout(resizeStage, 120);
 });
-
 document.addEventListener('keydown', (e) => {
   if (e.key.toLowerCase() === 'f') { e.preventDefault(); toggleFullscreen(); }
 });
@@ -1178,7 +1173,6 @@ function renderMF(i){
 
   mfNumEl.textContent = i + 1;
 
-  /* Central visual — animated icon for every step */
   const data = procData[i];
   mfVisualEl.innerHTML = `
     <div class="${data.anim}" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center">
@@ -1186,7 +1180,6 @@ function renderMF(i){
     </div>
   `;
 
-  /* Text transition */
   mfTitleEl.style.opacity = 0;
   mfDescEl.style.opacity  = 0;
   mfTitleEl.style.transform = 'translateY(8px)';
@@ -1202,7 +1195,6 @@ function renderMF(i){
   }, 120);
 }
 
-/* ---- Play / Pause ---- */
 const playBtn = document.getElementById('mfPlay');
 
 function stopPlay(){
@@ -1238,7 +1230,6 @@ document.getElementById('mfPrev').addEventListener('click', (e) => {
   renderMF((mfIdx - 1 + procData.length) % procData.length);
 });
 
-/* initialise */
 renderMF(0);
 goTo(0);
 </script>
